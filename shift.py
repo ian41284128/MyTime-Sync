@@ -1,6 +1,4 @@
 from datetime import datetime, timedelta
-
-import pytz
 from pytz import timezone
 
 
