@@ -53,10 +53,3 @@ class Shift:
 
     def __eq__(self, other):
         return self.start == other.start and self.end == other.end
-
-
-if __name__ == "__main__":
-    # print(timezone('America/Los_Angeles'))
-    date = Shift.create_from_mytime("Tuesday August 05", "3:30 PM", "12:00 AM", "8hrs")
-    print(Shift.default_timezone.zone)
-    print(date.start.isoformat())

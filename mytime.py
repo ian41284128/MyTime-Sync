@@ -65,7 +65,3 @@ def scrape(url, username, password, timeout=10):
     print("Quitting selenium...")
     driver.quit()
     return shifts
-
-
-if __name__ == "__main__":
-    scrape()

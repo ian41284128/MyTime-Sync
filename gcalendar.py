@@ -72,11 +72,3 @@ class GCalendar:
     def insert_shift(self, shift):
         event = self.service.events().insert(calendarId=self.calendar_id, body=shift.to_gcalendar_event()).execute()
         print('Event created: ' + (event.get('htmlLink')))
-
-
-if __name__ == "__main__":
-    service = GCalendar('Ian Work')
-    for shift in service.get_events():
-        print(shift)
-        # service.insert_shift(id)
-        exit()
