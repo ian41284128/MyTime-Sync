@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 from shift import Shift
 
 
@@ -20,7 +22,7 @@ def sign_in(driver, username, password, timeout=10):
             expected_conditions.presence_of_element_located((By.ID, "password"))
         )
         password_field.send_keys(password)
-        driver.find_element(By.ID, "btnSignIn").click()
+        driver.find_element(By.ID, "btnSubmit").click()
         print("password!")
     except TimeoutException:
         return False
@@ -51,7 +53,7 @@ def init(url):
     options = Options()
     options.add_argument("--headless")
     print("Initializing selenium...")
-    driver = webdriver.Firefox(options=options)
+    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     driver.get(url)
     return driver
 
